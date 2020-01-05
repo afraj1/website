@@ -5,7 +5,7 @@ node{
    
    stage('Deploy to Tomcat'){
       
-      sshagent(['tomcat-dev']) {
+      sshagent(['staging-root']) {
          sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Afraj-website/index.html root@10.0.2.160:/home/ec2-user'
       }
    }
