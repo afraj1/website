@@ -3,10 +3,10 @@ node{
      git 'https://github.com/afraj1/website'
    }
    
-   stage('Deploy to Tomcat'){
+   stage('Deploy to Webserver'){
       
-      sshagent (credentials:['stagingwithroot']) {
-         sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Afraj-website/index.html root@10.0.2.160:/home/ec2-user'
+      sshagent (credentials:['staging-web']) {
+         sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Afraj-website/index.html ec2-user@10.0.2.160:/home/ec2-user'
       }
    }
    
