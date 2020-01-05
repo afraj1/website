@@ -7,7 +7,7 @@ node{
       
       sshagent (credentials:['staging-web']) {
          sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Afraj-website/index.html ec2-user@10.0.2.160:/home/ec2-user'
-		 sh ‘ec2-user@10.0.2.160 touch /home/ec2-user/testfile
+		 sh ‘ ssh ec2-user@10.0.2.160 touch /home/ec2-user/testfile'
       }
    }
    
