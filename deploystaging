@@ -1,11 +1,13 @@
-pipeline {
-   agent any
-
-   stage('Deploy to Staging'){
+node{
+   stage('SCM Checkout'){
+     git 'https://github.com/afraj1/website'
+   }
+   
+   stage('Deploy to Tomcat'){
       
-      sshagent(['Staging Web']) {
+      sshagent(['tomcat-dev']) {
          sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Afraj-website/index.html ec2-user@3.222.189.33:/home/ec2-user'
       }
    }
-
-  }
+   
+ }
