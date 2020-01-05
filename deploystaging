@@ -1,0 +1,11 @@
+pipeline {
+   agent any
+
+   stage('Deploy to Staging'){
+      
+      sshagent(['Staging Web']) {
+         sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Afraj-website/index.html ec2-user@3.222.189.33:/home/ec2-user'
+      }
+   }
+
+  }
